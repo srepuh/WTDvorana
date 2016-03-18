@@ -1,0 +1,306 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+@import url(https://fonts.googleapis.com/css?family=Lora);
+
+body {
+    margin: 0px 0px;
+	padding-top: 5px;
+	background-image:url('../slike/teren2.jpg');
+	background-repeat:no-repeat;
+}
+
+#logo{
+    position: relative;
+    top: 50px;  
+    left: 20px;
+}
+
+#logoTeren {
+	width: 150px;
+	padding: 20px;
+	border: 8px solid;
+	border-top: 11px solid;
+	border-bottom: 3px solid;
+	border-radius: 33px / 47px;	
+	background: #1abc9c;
+	transform: rotateX(50deg) rotateY(-12deg) rotateZ(1deg) skewX(39deg);
+	box-shadow: -20px 15px 10px 0 rgba(0,0,0,0.3);
+    background: radial-gradient(circle at 99% 24px, #004604, #1ABC0D 84%);
+}
+
+#logoLopta{
+	border-radius: 50%;
+	width: 80px;  
+	height: 80px;
+	border: 1px solid black;
+	position: absolute;
+	box-shadow: -10px 10px 6px 0 rgba(0,0,0,0.3);
+	top:-5px;
+	left:-10px;
+	background: radial-gradient(circle at 89% 51px, black, rgba(255, 255, 255, 1) 91%);
+}
+
+#logoLopta:after{
+    content: " ";
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 17px;
+    left: 40px;
+    background: radial-gradient(circle at 92% 6px, black, transparent 148%);
+}
+
+#logoLopta:before{
+    content: " ";
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 2px;
+    left: 48px;
+    background: radial-gradient(circle at 73% 14px, black, transparent 131%);
+}
+
+#logoText{
+	transform: rotateX(50deg) rotateY(-12deg) rotateZ(1deg);
+	text-shadow: -8px 5px 1px rgba(0,0,0,0.2);
+	font-size:23px;
+	position: absolute;
+    top: 14px;
+   	left: 79px;
+}
+
+header{	
+    width: 100%;
+    background-image: url('../slike/gool.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin: -20px 0px;
+    height: 120px;
+}
+
+#body{
+	width: 100%;
+	height:100%;
+    background-image: url('../slike/teren1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: -65px 0px;	
+}
+
+nav{
+	text-align:center;
+}
+
+nav ul{
+    position: relative;
+    left: -20px;
+}
+
+nav li{
+	display:inline-block;
+	padding:0px 20px;
+}
+
+
+nav li a{
+	text-decoration:none;
+	color:#26FF01;
+	text-shadow: -8px 5px 1px rgba(0,0,0,0.2);
+	font-family:'Noto Sans',sans-serif;
+}
+
+nav li:hover{
+	background-image:url('../slike/lopta.png');
+	background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#logoLi{
+    top: -20px;
+    position: relative;
+    left: -20px;
+}
+
+#logoLi:hover{
+	background-image:none;
+}
+
+
+.container{
+    width: 900px;
+	height:100%;
+    min-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 65px;
+    background-image: url('../slike/Container.png');
+    border-radius: 4%;
+}
+
+.novostiLijevo{
+	width:405px;
+	height:170px;
+	display:inline-block;
+	margin-left: 20px;
+    float: left;
+	border-radius:10%;
+	border:1px solid gray;
+	margin-top:15px;
+	background-color:rgba(15, 117, 56, 0.55);
+}
+
+.novostiLijevo h4{
+	margin-left:auto;
+	margin-right:auto;
+	width:40%;
+	margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.novostiDesno{
+	width:405px;
+	height:170px;
+	display:inline-block;	
+    margin-right: 20px;
+    float: right;
+	border-radius:10%;
+	border:1px solid gray;
+	margin-top:15px;
+	background-color:rgba(15, 117, 56, 0.55);
+}
+
+.novostiDesno h4{
+	margin-left:auto;
+	margin-right:auto;
+	width:40%;
+	margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.novost{
+	padding: 5px;
+}
+
+.slikaNovosti{
+	width:200px;
+	height:100px;
+	display:inline-block;
+	border-radius: 15%;
+	vertical-align:top;
+}
+
+.paragrafNovosti{
+	display:inline-block;
+	width:40%;
+	margin-left:5px;
+    font-size: 100%;
+	margin-top: -5px;
+	font-size:15px;
+	font-family:'Lora';
+	font-style:italic;
+}
+
+
+
+#linkovi{
+	font-size:40px;
+	width:200px;
+	margin-left:10px;
+}
+
+#linkovi li{
+	list-style-type: none;	
+	height:40px;
+	padding:3px;
+}
+
+#linkovi li a{
+	text-decoration:none;
+}
+
+#linkovi li:hover{
+	list-style-image:url('../slike/oko.png');
+}
+
+
+
+
+#forma{
+	width: 320px;
+    height: 210px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 7px 9px 10px 6px rgba(0,0,0,0.3);
+    padding: 10px;
+    position: relative;
+    top: 50px;
+	background-color: #30B14C;
+	border-radius:4%;
+}
+
+#forma h4{
+    margin: 5px;
+	padding-bottom:5px;
+    border-bottom: 1px solid rgb(125, 125, 125);
+	font-family:'Lora';
+}
+
+#unutrasnjaForma{
+    margin: 0px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(125, 125, 125);
+    background-color: rgb(51, 195, 82);
+    padding-left: 10px;
+    position: relative;
+    top: -5px;
+}
+
+#ImeDiv, #TelDiv, #EmailDiv, #GodinaDiv{
+	padding-top:15px;
+	width:300px;
+}
+
+label{
+	display:inline-block;
+	font-family:'Lora';
+	font-size:15px;
+}
+
+#tbIme{
+	display:inline-block;
+	float:right;
+} 
+
+#tbTel, #tbEmail, #tbGodina{
+	display:inline-block;
+	float:right;
+}
+
+#btnSumbit{
+	position:relative;
+	top:5px;
+	left:-10px;
+	float:right;	
+	border-radius:20%;
+	background-color:#8CFDA9;
+}
+
+#footer{
+	width:100%;
+	position:absolute;
+	top: 100%;
+    height: 20px;
+    margin-top: -20px;
+    background-color: #2D3246;
+}
+
+#foot{
+	width:14%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 2px;
+    color: #148A00;
+}
