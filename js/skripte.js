@@ -73,7 +73,8 @@ function ispisiPrije(datum){
 							if(min<datum.getMinutes()){
 								var tmpMinute=min+(59-datum.getMinutes());
 								var minute=["minutu", "minute", "minuta"];
-								tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);	
+								tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);
+							}
 							}
 							else {
 								tmp=Formatiraj(1,"sat");
@@ -81,8 +82,10 @@ function ispisiPrije(datum){
 						}else{
 							var tmpMinute=min-datum.getMinutes();
 							var minute=["minutu", "minute", "minuta"];
-							tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);	
-					
+							tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);
+							if(min-datum.getMinutes()==0){
+								tmp=Formatiraj("par sekundi","");
+							}
 						}	
 					}
 				}
