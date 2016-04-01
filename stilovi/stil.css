@@ -6,6 +6,7 @@ body {
 	padding-top: 5px;
 	background-image:url('../slike/teren2.jpg');
 	background-repeat:no-repeat;
+	background-size: cover;
 }
 
 #logo{
@@ -138,12 +139,13 @@ nav li:hover{
     margin-top: 65px;
     background-image: url('../slike/Container.png');
     border-radius: 4%;
+	overflow:hidden;
 }
 
 #footer{
 	width:100%;
-	position:absolute;
-	top: 100%;
+	position:relative;
+	bottom: -63px;
     height: 20px;
     margin-top: -20px;
     background-color: #2D3246;
@@ -157,8 +159,18 @@ nav li:hover{
     color: #148A00;
 }
 
+#filter{
+	margin-left:25px;
+	margin-top:10px;
+	border-radius:15%;
+	background-color:grey;
+	color:white;
+}
 
-
+.vrijeme{
+	font-size:10px;
+	margin-left:5px;
+}
 
 .novostiLijevo{
 	width:405px;

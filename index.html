@@ -3,6 +3,7 @@
 		<title>Dvorana R&S </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="stilovi/stil.css">
+		<script type="text/javascript" src="js/skripte.js"></script>
 	</head>
 	<body>
 		<header>
@@ -19,8 +20,18 @@
 		</header>
 		<div id="body">
 			<div class="container">
+				<div id="filterDiv">
+					<select id="filter" onchange="Filtriraj()">
+						<option value="0">Sve novosti</option>
+						<option value="1">Današnje novosti</option>
+						<option value="2">Sedmične novosti</option>
+						<option value="3">Mjesečne novosti</option>
+					</select>
+					<br>
+				</div>
 				<div class="novostiLijevo"> 
 					<h4>Najbolji tereni</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-03-29T20:30:00"> </time>.</div>
 					<div class="novost">
 						<img class="slikaNovosti" src="slike/izgled1.jpg" alt="Slika terena"/>
 						<p class="paragrafNovosti">Plastična trava proizvedena u Njemačkoj i održavana od strane Njemačke firme je jedan od naših najvećih aduta.</p>
@@ -28,6 +39,7 @@
 				</div>
 				<div class="novostiDesno"> 
 					<h4>Najkvalitetnije lopte</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-03-29T20:00:00">vrijeme</time>.</div>
 					<div class="novost"> 
 						<img class="slikaNovosti" src="slike/lopte.jpg" alt="Slika lopti" />
 						<p class="paragrafNovosti">Od sada vam nudimo najbolje lopte od najpoznatijih proizvođača kao što su Adidas i Nike.</p>
@@ -35,6 +47,7 @@
 				</div>
 				<div class="novostiLijevo"> 
 					<h4>Najbolji golovi</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-03-28T20:49:00">vrijeme</time>.</div>
 					<div class="novost">
 						<img class="slikaNovosti" src="slike/golovi.jpg" alt="Slika golova"/>
 						<p class="paragrafNovosti">Aluminijski golovi sa nepoderivom mrežicom će vaš ugođaj dovesti na sasvim novi nivo.</p>
@@ -42,11 +55,78 @@
 				</div>
 				<div class="novostiDesno"> 
 					<h4>Novi markeri</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-03-26T13:25:03">vrijeme</time>.</div>
 					<div class="novost"> 
 						<img class="slikaNovosti" src="slike/markeri.jpg" alt="Slika markera" />
 						<p class="paragrafNovosti">Kao najboolji domaćini nudimo vam i besplatne markere da biste mogli lakše prepoznati svoje saigrače.</p>
 					</div>
 				</div>
+				<div class="novostiLijevo"> 
+					<h4>Malonogometni turnir</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-03-25T19:49:00">vrijeme</time>.</div>
+					<div class="novost">
+						<img class="slikaNovosti" src="slike/turnir1.jpg" alt="Slika golova"/>
+						<p class="paragrafNovosti">Ovog mjeseca u našoj dvorani će se održati malonogometni turnir Asim Ferhatović Hase.</p>
+					</div>
+				</div>
+				<div class="novostiDesno"> 
+					<h4>Pobjednici turnira</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-03-15T13:25:03">vrijeme</time>.</div>
+					<div class="novost"> 
+						<img class="slikaNovosti" src="slike/osvajaciTurnira.jpg" alt="Slika markera" />
+						<p class="paragrafNovosti">Ove godine osvajac tradicionalnog turnira Asim Ferhatović Hase je ekipa "Crvena Furija".</p>
+					</div>
+				</div>
+				<div class="novostiLijevo"> 
+					<h4>Nove lopte</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-03-05T10:50:00">vrijeme</time>.</div>
+					<div class="novost">
+						<img class="slikaNovosti" src="slike/nekaLopta.jpg" alt="Slika lopte"/>
+						<p class="paragrafNovosti">Dvorana R&S je dobila nove lopte od našeg poslovnog partnera Adidasa, dođite i oprobajte ih.</p>
+					</div>
+				</div>
+				<div class="novostiDesno"> 
+					<h4>R&S sponzor WC2014</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-03-01T13:25:03">vrijeme</time>.</div>
+					<div class="novost"> 
+						<img class="slikaNovosti" src="slike/brazil2014.jpg" alt="Slika brazila" />
+						<p class="paragrafNovosti">Naša dvorana je generalni sponzor predstojećeg prventsva u Brazilu World Cup 2014.</p>
+					</div>
+				</div>
+				<div class="novostiLijevo"> 
+					<h4>Bajramski turnir</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2016-02-25T18:25:03">vrijeme</time>.</div>
+					<div class="novost"> 
+						<img class="slikaNovosti" src="slike/bajramskiTurnir.png" alt="Slika markera" />
+						<p class="paragrafNovosti">Pred kraj tekuće sedmice bit će održan tradiconalni malonogometni bajramski turnir. Učešće je besplatno</p>
+					</div>
+				</div>
+				<div class="novostiDesno"> 
+					<h4>Pobjednici siromašnim</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2015-12-20T10:49:00">vrijeme</time>.</div>
+					<div class="novost">
+						<img class="slikaNovosti" src="slike/osvajaciBajramskogTurnira.jpg" alt="Slika golova"/>
+						<p class="paragrafNovosti">Ove godine sve ekipe su odlučile osvojene nagrade pokloniti siromašnim i uljepšati im praznike.</p>
+					</div>
+				</div>
+				<div class="novostiLijevo"> 
+					<h4>Turnir reintegracije</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2014-03-28T19:49:00">vrijeme</time>.</div>
+					<div class="novost">
+						<img class="slikaNovosti" src="slike/turnir2.jpg" alt="Slika golova"/>
+						<p class="paragrafNovosti">Turnir reintegracije će se održati ovog vikenda u R&S dvorani. Obavezno dođite!</p>
+					</div>
+				</div>
+
+				<div class="novostiDesno"> 
+					<h4>Pobjednik turnira</h4>
+					<div class="vrijeme"> Novost objavljena <time class="vrijemeObjave" datetime="2014-11-05T13:25:03">vrijeme</time>.</div>
+					<div class="novost"> 
+						<img class="slikaNovosti" src="slike/osvajaciDrugogTurnira.jpg" alt="Slika markera" />
+						<p class="paragrafNovosti">Osvajač turnira reintegracije je prošlogodišnji pobjednik, ekipa "Bosna".</p>
+					</div>
+				</div>
+
 			</div>
 		</div>
 		<div id="footer">

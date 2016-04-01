@@ -3,6 +3,8 @@
 		<title>Dvorana R&S - Kontakt </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../stilovi/stil.css">
+		<script src="../js/skripte.js"></script>
+
 	</head>
 
 	<body>
@@ -25,19 +27,19 @@
 					<div id="unutrasnjaForma">
 						<div id="ImeDiv"> 
 							<label>Ime i prezime:</label>
-							<input id="tbIme" type="text" placeholder="Unesi ime i prezime"/>
+							<input id="tbIme" type="text" oninput="ValidirajImeIprezime(this)" placeholder="Unesi ime i prezime"/>
 						</div>
 						<div id="TelDiv"> 
 							<label>Telefon:</label>
-							<input id="tbTel" type="tel" placeholder="Unesi telefon"/>
+							<input id="tbTel" type="tel" oninput="ValidirajTelefon(this)"  placeholder="Unesi telefon"/>
 						</div>
 						<div id="EmailDiv"> 
 							<label>Email:</label>
-							<input id="tbEmail" type="email" placeholder="Unesi email"/>
+							<input id="tbEmail" type="email" oninput="ValidirajEmail(this)" placeholder="Unesi email"/>
 						</div>
 						<div id="GodinaDiv"> 
 							<label>Godina rodjenja:</label>
-							<input id="tbGodina" type="number" value="1992"/>
+							<input id="tbGodina" type="number" oninput="ValidirajGodinu(this)" value="1992"/>
 						</div>
 					</div>
 					<div id="SubmitDiv">
