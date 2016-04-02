@@ -1,7 +1,5 @@
 onload = function Datum(){
-
 	var klasa = "vrijemeObjave";
-
 	var elementi = document.getElementsByClassName(klasa);
 	for(var i=0; i<elementi.length; i++){
 		var s = elementi[i].getAttribute("datetime");
@@ -20,15 +18,6 @@ onload = function Datum(){
 
 	tmp.push(filter);
 	sve=tmp.concat(SpojiLijevoDesno(listaLijevih,listaDesnih));
-	//
-	
-	//validacija
-		var elem= document.getElementById("tbTel");
-		addRedBorder(elem);
-		var elem1= document.getElementById("tbEmail");
-		addRedBorder(elem1);
-		var elem2= document.getElementById("tbIme");
-		addRedBorder(elem2);
 	//
 }
 
@@ -52,53 +41,101 @@ function ispisiPrije(datum){
 	
 	var tmp="";
 	if(year-datum.getFullYear()==0){		
-		if(month-datum.getMonth()==1){
-			var tmpDana=date-datum.getDate();
-			if(tmpDana<7){
-				if(date-datum.getDate()==1) tmp=Formatiraj(date-datum.getDate(),"dan")
-				else{
-					tmp =Formatiraj(date-datum.getDate(),"dana");			
-				}
-				if(date-datum.getDate()==0){
-					var tmpSati=hour-datum.getHours();
-					if(tmpSati==1 || tmpSati==21 ){
-						tmp=Formatiraj(tmpSati,"sat");
-					}else if((tmpSati>1 && tmpSati<5) || (tmpSati>21 && tmpSati<=24)){
-						tmp=Formatiraj(tmpSati,"sata")
-					}else{
-						tmp =Formatiraj(tmpSati,"sati");			
+		if(month-datum.getMonth()<=2){
+			if(month-datum.getMonth()==2){
+				var tmpDana=31-datum.getDate()+date;
+				if(tmpDana<7){
+					if(tmpDana==1) tmp=Formatiraj(tmpDana,"dan")
+					else{
+						tmp =Formatiraj(tmpDana,"dana");			
 					}
-					if(hour-datum.getHours()<=1){
-						if(hour-datum.getHours()==1){
-							if(min<datum.getMinutes()){
-								var tmpMinute=min+(59-datum.getMinutes());
+					if(date-datum.getDate()==0){
+						var tmpSati=hour-datum.getHours();
+						if(tmpSati==1 || tmpSati==21 ){
+							tmp=Formatiraj(tmpSati,"sat");
+						}else if((tmpSati>1 && tmpSati<5) || (tmpSati>21 && tmpSati<=24)){
+							tmp=Formatiraj(tmpSati,"sata")
+						}else{
+							tmp =Formatiraj(tmpSati,"sati");			
+						}
+						if(hour-datum.getHours()<=1){
+							if(hour-datum.getHours()==1){
+								if(min<datum.getMinutes()){
+									var tmpMinute=min+(59-datum.getMinutes());
+									var minute=["minutu", "minute", "minuta"];
+									tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);
+								}
+								else {
+									tmp=Formatiraj(1,"sat");
+								}
+							}else{
+								var tmpMinute=min-datum.getMinutes();
 								var minute=["minutu", "minute", "minuta"];
 								tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);
-							}
-							}
-							else {
-								tmp=Formatiraj(1,"sat");
-							}
-						}else{
-							var tmpMinute=min-datum.getMinutes();
-							var minute=["minutu", "minute", "minuta"];
-							tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);
-							if(min-datum.getMinutes()==0){
-								tmp=Formatiraj("par sekundi","");
-							}
-						}	
+								if(min-datum.getMinutes()==0){
+									tmp=Formatiraj("par sekundi","");
+								}
+							}	
+						}
 					}
+				}else if(tmpDana==7) {
+					tmp=Formatiraj("1","sedmice");
+				}else if(tmpDana<=14){
+					tmp=Formatiraj("2","sedmice");
+				}else if(tmpDana<=21){
+					tmp=Formatiraj("3","sedmice");
+				}else if(tmpDana<=30){
+					tmp=Formatiraj("4","sedmice");
+				}else{
+					tmp=DajCijeliDatum(datum);
 				}
-				
-			}else if(tmpDana>=28){
-				tmp=Formatiraj("4","sedmice");
-			}else if(tmpDana>=21){
-				tmp=Formatiraj("3","sedmice");
-			}else if(tmpDana>=14){
-				tmp=Formatiraj("2","sedmice");
-			}else if(tmpDana>=7) {
-				tmp=Formatiraj("1","sedmice");
-			} 
+			}else{
+				var tmpDana=date-datum.getDate();
+				if(tmpDana<7){
+					if(date-datum.getDate()==1) tmp=Formatiraj(date-datum.getDate(),"dan")
+					else{
+						tmp =Formatiraj(date-datum.getDate(),"dana");			
+					}
+					if(date-datum.getDate()==0){
+						var tmpSati=hour-datum.getHours();
+						if(tmpSati==1 || tmpSati==21 ){
+							tmp=Formatiraj(tmpSati,"sat");
+						}else if((tmpSati>1 && tmpSati<5) || (tmpSati>21 && tmpSati<=24)){
+							tmp=Formatiraj(tmpSati,"sata")
+						}else{
+							tmp =Formatiraj(tmpSati,"sati");			
+						}
+						if(hour-datum.getHours()<=1){
+							if(hour-datum.getHours()==1){
+								if(min<datum.getMinutes()){
+									var tmpMinute=min+(59-datum.getMinutes());
+									var minute=["minutu", "minute", "minuta"];
+									tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);
+								}
+								else {
+									tmp=Formatiraj(1,"sat");
+								}
+							}else{
+								var tmpMinute=min-datum.getMinutes();
+								var minute=["minutu", "minute", "minuta"];
+								tmp =Formatiraj(tmpMinute,minute[GetMinuteLevel(tmpMinute)]);
+								if(min-datum.getMinutes()==0){
+									tmp=Formatiraj("par sekundi","");
+								}
+							}	
+						}
+					}
+					
+				}else if(tmpDana==7) {
+					tmp=Formatiraj("1","sedmice");
+				}else if(tmpDana<=14){
+					tmp=Formatiraj("2","sedmice");
+				}else if(tmpDana<=21){
+					tmp=Formatiraj("3","sedmice");
+				}else if(tmpDana<=30){
+					tmp=Formatiraj("4","sedmice");
+				} 
+			}
 		}else{
 			tmp=DajCijeliDatum(datum);
 		}
@@ -213,10 +250,16 @@ function VratiZadovoljavajuce(lista,izabrano){
 			zadovoljavajuci.push(lista[i]);
 		}
 		if(pr=="sedmica" && izabrano==2){
+			var d=new Date();
+			var ble=lista[i].getElementsByClassName("vrijemeObjave");
+			var eh=ble[0].getAttribute("datetime");
+			var datum= new Date(eh);
+			var tit=datum.getDay();
+			if(d.getDay()>tit)
 				zadovoljavajuci.push(lista[i]);
 		}
 		if(pr=="mjesec" && izabrano==3){
-				zadovoljavajuci.push(lista[i]);
+			zadovoljavajuci.push(lista[i]);
 		}
 		if(izabrano==0){
 			zadovoljavajuci.push(lista[i]);
@@ -236,62 +279,3 @@ function Provjera(str){
 
 
 
-//validacija :D
-function ValidirajImeIprezime(tb){
-	var reg=/\w{2}\s\w{2}/i;
-	if(!reg.test(tb.value))
-		addRedBorder(tb);
-	else{
-		removeRedBorder(tb);
-	}
-}
-
-function ValidirajTelefon(tb){
-	var elem= document.getElementById("tbEmail");
-	
-	var reg=/^\(?([0-9]{3})\)?[/. ]?([0-9]{3})[-. ]?([0-9]{3})/i;
-	var reg2=/^\(?([0-9]{3})\)?[/. ]?([0-9]{3})[-. ]?([0-9]{2})[-. ]?([0-9]{2})/i;
-	if(!reg.test(tb.value) && !reg2.test(tb.value)){
-		addRedBorder(tb);
-		addRedBorder(elem);
-	}
-	else{
-		removeRedBorder(tb);
-		removeRedBorder(elem);
-	}
-}
-
-function ValidirajEmail(tb){
-	var elem= document.getElementById("tbTel");
-	
-	var reg=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9])+\.)+([a-z]{3})/i;
-	if(!reg.test(tb.value)){
-		addRedBorder(tb);
-		addRedBorder(elem);
-	}
-	else{
-		removeRedBorder(tb);
-		removeRedBorder(elem);
-	}
-	
-}
-
-function ValidirajGodinu(tb){
-	var d=new Date();
-	if(tb.value<=d.getFullYear() && tb.value>1900)
-		removeRedBorder(tb);
-	else{
-		addRedBorder(tb);
-	}
-}
-
-
-function addRedBorder(tb){
-	tb.style.border="2px solid red";
-}
-
-function removeRedBorder(tb){
-	tb.style.border="";
-}
-
-//
