@@ -4,19 +4,33 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../stilovi/stil.css">
 		<script src="../js/Validacija.js"></script>
-
+		<script src="../js/Main.js"></script>
 	</head>
 
 	<body>
+<?php
+include 'login.php';
+?>
+				<div id="vrh"></div>
 		<header>
 			<nav>
 				<ul>
 					<li id="logoLi"><div id="logo"><div id="logoTeren"></div><div id="logoText"><strong>Gym R&S</strong></div><div id="logoLopta"></div></div></li>
-					<li><a href="../index.html"><h3>Početna</h3></a></li>
-					<li><a href="ONama.html"><h3>O nama</h3></a></li>
-					<li><a href="Kontakt.html"><h3>Kontakt</h3></a></li>
-					<li><a href="Linkovi.html"><h3>Linkovi</h3></a></li>
-					
+					<li><a href="../index.php"><h3>Početna</h3></a></li>
+					<li><a href="ONama.php"><h3>O nama</h3></a></li>
+					<li><a href="Kontakt.php"><h3>Kontakt</h3></a></li>
+					<li><a href="Linkovi.php"><h3>Linkovi</h3></a></li>
+					<?php if ($_SESSION['loginFormVisible']==='true')
+						{?>
+							<li onclick="Login()"><a href="#"><h3>Login</h3></a></li>
+						<?php 
+						}else{ 
+						?>
+							<li onclick="Logout()"><a href="#"><h3>Logout</h3></a></li>
+						<?php 
+						}
+						?>					 
+
 				</ul>
 			</nav>
 		</header>

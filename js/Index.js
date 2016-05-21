@@ -18,7 +18,9 @@ onload = function Datum(){
 
 	tmp.push(filter);
 	sve=tmp.concat(SpojiLijevoDesno(listaLijevih,listaDesnih));
-	//
+	//ucitavanje forme za novosti i objavljivanje
+	UcitajFormu();
+	UcitajObjavljivanjeNovostiFormu();
 }
 
 //filter
@@ -29,6 +31,7 @@ var filter;
 var tmp=[];
 var sve;
 //
+
 
 function ispisiPrije(datum){
 	var trenutnoVrijeme = new Date();
@@ -171,7 +174,6 @@ function Formatiraj(vrijeme,rijec){
 }	
 
 
-//filter
 function Filtriraj(){	
 	var izabrano=document.getElementById("filter").value;
 	var tmpDesni=listaDesnih;
@@ -275,7 +277,5 @@ function Provjera(str){
 	else return "sve";
 }
 //
-
-
 
 
