@@ -11,7 +11,7 @@
 			$naslov=str_replace(",",";.?",$naslov);
 			$tekst=str_replace(",",";.?",$tekst);
 			$tekst=str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$tekst);
-			file_put_contents("novosti.csv",$naslov.','.$slika.','.$tekst.','.$today."\n",FILE_APPEND);
+			file_put_contents("../novosti.csv",$naslov.','.$slika.','.$tekst.','.$today."\n",FILE_APPEND);
 			$uspjeh="Uspjesno ste objavili novost!";
 		}
 		else{

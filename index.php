@@ -19,7 +19,8 @@ function UcitajSvePhp(){
 	$obj=array();
 	foreach($redovi as $r){
 		$celije=explode(',',$r);
-		$tmpObj=array('naslov'=>str_replace(";.?",",",$celije[0]),'tekst'=>str_replace(";.?",",",$celije[2]),'link'=>$celije[1],'datum'=>$celije[3]);
+		$tmpDatum=$celije[3]."+02:00";
+		$tmpObj=array('naslov'=>str_replace(";.?",",",$celije[0]),'tekst'=>str_replace(";.?",",",$celije[2]),'link'=>$celije[1],'datum'=>$tmpDatum);
 		array_push($obj,$tmpObj);
 	}
 	if(isset($_GET['filterPHP']))

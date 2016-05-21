@@ -18,7 +18,7 @@ function UcitajObjavljivanjeNovostiFormu(){
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("objavljivanjeNovosti").innerHTML = "Greska: nepoznat URL";
 	}
-	ajax.open("GET", "test.php", true);
+	ajax.open("GET", "stranice/test.php", true);
 	ajax.send();	
 }
 
@@ -35,7 +35,7 @@ function SubmitObjavu(){
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("objavljivanjeNovosti").innerHTML = "Greska: nepoznat URL";
 	}
-	ajax.open("POST", "test.php");
+	ajax.open("POST", "stranice/test.php");
 	ajax.send(formdata);
 	return false;
 }
