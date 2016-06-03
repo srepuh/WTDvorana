@@ -88,16 +88,15 @@
 		<div id="logout">
 			<?php
 			
-			//ovo ne radi moram popraviti
 			$url="$_SERVER[REQUEST_URI]";
-			if($url!="/wt" || $url!="/wt/index.php"){
-				?>
-			<form method="post" action="stranice/login.php">
+			if(strpos($url,"/stranice")){
+			?>
+			<form method="post" action="login.php">
 				<input class="btnPrijava" name="odjava" value="Odjavi se" type="submit"/>
 			</form>
 			<?php }
 			else{ ?>
-			<form method="post" action="login.php">
+			<form method="post" action="stranice/login.php">
 				<input class="btnPrijava" name="odjava" value="Odjavi se" type="submit"/>
 			</form>
 

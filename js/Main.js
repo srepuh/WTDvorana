@@ -6,7 +6,12 @@ function UcitajFormu(){
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("vrh").innerHTML = "Greska: nepoznat URL";
 	}
-	ajax.open("GET", "stranice/login.php", true);
+	var check=window.location.pathname;
+	if(check.indexOf("autori.php")==-1)
+		ajax.open("GET", "stranice/login.php", true);
+	else{
+		ajax.open("GET", "login.php", true);
+	}
 	ajax.send();	
 }
 
@@ -18,7 +23,11 @@ function UcitajObjavljivanjeNovostiFormu(){
 		if (ajax.readyState == 4 && ajax.status == 404)
 			document.getElementById("objavljivanjeNovosti").innerHTML = "Greska: nepoznat URL";
 	}
-	ajax.open("GET", "stranice/test.php", true);
+	var check=window.location.pathname;
+	if(check.indexOf("autori.php")==-1)
+		ajax.open("GET", "stranice/test.php", true);
+	else
+		ajax.open("GET", "test.php", true);
 	ajax.send();	
 }
 
@@ -28,7 +37,8 @@ function SubmitObjavu(){
 	formdata.append(document.getElementsByName("naslov")[0].name,document.getElementsByName("naslov")[0].value);
 	formdata.append(document.getElementsByName("linkSlike")[0].name,document.getElementsByName("linkSlike")[0].value);
 	formdata.append(document.getElementsByName("tekstualno")[0].name,document.getElementsByName("tekstualno")[0].value);
-
+	formdata.append(document.getElementsByName("komentari")[0].name,document.getElementsByName("komentari")[0].value);
+	
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4 && ajax.status == 200)
 			document.getElementById("objavljivanjeNovosti").innerHTML = ajax.responseText;
@@ -77,8 +87,84 @@ function IzadjiIzNovosti(){
 	elNovostCijeli.style.display="none";
 }
 
+function OtvoriNovost(id,check){
+	var ajax = new XMLHttpRequest();
+	ajax.onreadystatechange = function() {
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementsByClassName("container")[0].innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementsByClassName("container")[0].innerHTML = "Greska: nepoznat URL";
+		document.getElementById("postaviNovuVisible").style.display="none";
+	}
+	if(check)
+		ajax.open("GET", "stranice/ucitajNovost.php?id="+id, true);
+	else
+		ajax.open("GET", "ucitajNovost.php?id="+id, true);
+	ajax.send();	
+}
 
+function OpenAutor(id){
+	var theForm, input1;
+	theForm = document.createElement('form');
+	var check=window.location.pathname;
+	if(check.indexOf("autori.php")==-1)
+		theForm.action = 'stranice/autori.php';
+	else
+		theForm.action = 'autori.php';
+	theForm.method = 'get';
+	input1 = document.createElement('input');
+	input1.type = 'hidden';
+	input1.name = 'id';
+	input1.value = id;
+	theForm.appendChild(input1);
+	theForm.submit();
+}
 
+function DodajKomentar(id){
+	var ajax = new XMLHttpRequest();
+	ajax.onreadystatechange = function() {
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("formaObjavaKomentaraPocetna").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("formaObjavaKomentaraPocetna").innerHTML = "Greska: nepoznat URL";
+		document.getElementById("formaObjavaKomentaraPocetna").style.display="block";
+	}
+	var check=window.location.pathname;
+	ajax.open("GET", "stranice/dodajKomentar.php?id="+id, false);
+	ajax.send();	
+}
+
+function ZatvoriDodavanjeKomentara(){
+	document.getElementById("formaObjavaKomentaraPocetna").style.display="none";
+}
+
+function ObjaviKomentar(id){
+	var ajax = new XMLHttpRequest();
+	var formdata = new FormData();
+	formdata.append(document.getElementsByName("nick")[0].name,document.getElementsByName("nick")[0].value);
+	formdata.append(document.getElementsByName("komentar")[0].name,document.getElementsByName("komentar")[0].value);
+	formdata.append(document.getElementsByName("idKomentara")[0].name,document.getElementsByName("idKomentara")[0].value);
+	formdata.append("id",id);
+	
+	ajax.onreadystatechange = function() {
+		if (ajax.readyState == 4 && ajax.status == 200)
+			document.getElementById("formaObjavaKomentaraPocetna").innerHTML = ajax.responseText;
+		if (ajax.readyState == 4 && ajax.status == 404)
+			document.getElementById("formaObjavaKomentaraPocetna").innerHTML = "Greska: nepoznat URL";
+		OtvoriNovost(id,true);
+	}
+	ajax.open("POST", "stranice/dodajKomentar.php?id="+id);
+	ajax.send(formdata);
+	return false;
+	
+}
+
+function KomentarNaKomentar(idKomentara, idNovosti){
+	DodajKomentar(idNovosti);
+	DodajKomentar(idNovosti);
+    var eL=	document.getElementsByName("idKomentara")[0];
+	eL.value=idKomentara;
+}
 //validacija dodavanja objava i  AJAX
 function ValidirajNaslov(tb){
 	var reg=/\w{2}/i;
