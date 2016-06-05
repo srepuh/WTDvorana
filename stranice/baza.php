@@ -1,11 +1,11 @@
 <?php
 class Baza
 {
-    private static $dbName = 'wt' ;
-    private static $dbHost = 'localhost' ;
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = 'Sitim12';
-     
+    private static $dbName = 'sandr' ;
+    private static $dbHost = 'sandr-etermini.rhcloud.com/' ;
+    private static $dbUsername = 'adminclpfv8k';
+    private static $dbUserPassword = 'lieqYRia1PW2';
+    
     private static $con  = null;
      
     public static function connect()
